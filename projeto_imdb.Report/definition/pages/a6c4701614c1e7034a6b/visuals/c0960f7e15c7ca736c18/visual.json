@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "c0960f7e15c7ca736c18",
   "position": {
-    "x": 287,
+    "x": 413.22834645669292,
     "y": 0,
     "z": 2000,
-    "height": 299,
-    "width": 254,
+    "height": 299.002624671916,
+    "width": 253.64829396325459,
     "tabOrder": 2000
   },
   "visual": {
@@ -52,5 +52,23 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "beaf23490aa7f4bb7d13",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "imdb_movies"
+              }
+            },
+            "Property": "Resultado_Financeiro_Total"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

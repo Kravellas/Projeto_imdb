@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e51425e2905c24ce8105",
   "position": {
-    "x": 10,
-    "y": 309,
+    "x": 45.354330708661415,
+    "y": 293.96325459317586,
     "z": 1000,
-    "height": 299,
-    "width": 254,
+    "height": 340.997375328084,
+    "width": 320.83989501312334,
     "tabOrder": 1000
   },
   "visual": {
@@ -52,5 +52,23 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "69816661e2e7a69d2562",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "imdb_movies"
+              }
+            },
+            "Property": "Medida_contagem"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
