@@ -1,0 +1,18 @@
+expression Dim_ator =
+		let
+		    Fonte = Csv.Document(File.Contents("C:\Users\thorc\Downloads\FILMES_tratado.csv"),[Delimiter=",", Columns=22, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id", type text}, {"title", type text}, {"link", type text}, {"year", Int64.Type}, {"principal_director", type text}, {"principal_writer", type text}, {"principal_star", type text}, {"principal_genre", type text}, {"principal_country_origin", type text}, {"principal_production_company", type text}, {"principal_language", type text}, {"rating_mpa", type text}, {"rating_imdb", Int64.Type}, {"vote", Int64.Type}, {"duracao_minutos", Int64.Type}, {"budget", Int64.Type}, {"gross_world_wide", Int64.Type}, {"gross_us_canada", Int64.Type}, {"gross_opening_weekend", Int64.Type}, {"win", Int64.Type}, {"nomination", Int64.Type}, {"oscar", Int64.Type}}),
+		    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"principal_star"}),
+		    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas"),
+		    #"Índice Adicionado" = Table.AddIndexColumn(#"Duplicatas Removidas", "Índice", 0, 1, Int64.Type),
+		    #"Colunas Reordenadas" = Table.ReorderColumns(#"Índice Adicionado",{"Índice", "principal_star"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Reordenadas",{{"Índice", "ID_ator"}})
+		in
+		    #"Colunas Renomeadas"
+	lineageTag: aabb3f1f-21a9-42da-a4fa-3066cac5075f
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
